@@ -1,0 +1,64 @@
+
+PARSED: JOHN LIKES ALEX 
+
+--------------------PARSE 1--------------------
+
+[(> john (< likes alex)) = s : likes'alex'john']
+
+-----------------------------------------------
+
+PARSED: NO SPY PANICS 
+
+--------------------PARSE 1--------------------
+
+[(> (> no spy) panics) = s :  ∼ (∃x .spy'x  ∧ (panics'x)) ]
+
+-----------------------------------------------
+
+PARSED: JOHN LIKES SOME CAT 
+
+--------------------PARSE 1--------------------
+
+[(< (b> john likes) (> some cat)) = s : ∃x .cat'x  ∧ (likes'x john') ]
+
+-----------------------------------------------
+
+PARSED: NO CAT LIKES JOHN 
+
+--------------------PARSE 1--------------------
+
+[(> (> no cat) (< likes john)) = s :  ∼ (∃x .cat'x  ∧ (likes'john'x)) ]
+
+-----------------------------------------------
+
+PARSED: EVERY DOG CHASES SOME CAT 
+
+--------------------PARSE 1--------------------
+
+[(< (b> (> every dog) chases) (> some cat)) = s : ∃x .cat'x  ∧ (∀x_1.dog'x_1 ⊃ (chases'x x_1)) ]
+
+-----------------------------------------------
+
+PARSED: EVERY DOG CHASES SOME CAT 
+
+--------------------PARSE 2--------------------
+
+[(> (> every dog) (< chases (> some cat))) = s : ∀x .dog'x  ⊃ (∃x_8.cat'x_8 ∧ (chases'x_8x)) ]
+
+-----------------------------------------------
+
+PARSED: NO SPY LIKES EVERY CITY 
+
+--------------------PARSE 1--------------------
+
+[(< (b> (> no spy) likes) (> every city)) = s : ∀x .city'x  ⊃ ( ∼ (∃x_2.spy'x_2 ∧ (likes'x x_2))) ]
+
+-----------------------------------------------
+
+PARSED: NO SPY LIKES EVERY CITY 
+
+--------------------PARSE 2--------------------
+
+[(> (> no spy) (< likes (> every city))) = s :  ∼ (∃x .spy'x  ∧ (∀x_9.city'x_9 ⊃ (likes'x_9x))) ]
+
+-----------------------------------------------

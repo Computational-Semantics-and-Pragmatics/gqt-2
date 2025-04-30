@@ -1,0 +1,95 @@
+#
+# Generalized Quantifiers without morphology
+#
+---
+
+ feature-dictionary:
+  - (agr pl sg)
+  - (cat v n)
+  - (bar 0 1 2)
+
+ category-bundles:
+  - (s (cat v)) 
+  - (np (cat n) (bar 2))
+  - (n (cat n) (bar 0))
+
+ lexicon:
+
+  - pos: pn
+    syn:
+      - s/(s\np[sg])
+      - (s\np[agr=?x])\(s\np[agr=?x]/np)
+      - s\(s/np)
+    sem: \p. p lex' 
+    phon: [john,mary,alex]
+    doc: accusative and nominative # you can use this field to add notes to your entries 
+    status: on # you can set this field to 'off' to deactivate the entry
+
+  - pos: n
+    syn: n[sg]
+    sem: lex'
+    phon: [dog,cat,spy,city]
+
+  - pos: n
+    syn: n[pl]
+    sem: lex' 
+    phon: [dogs,cats,spies,cities]
+
+  - pos: v
+    syn: s\np[agr=sg]
+    sem: lex' 
+    phon: [talks,walks,panics]
+
+  - pos: v
+    syn: s\np[agr=pl]
+    sem: lex'
+    phon: [talk,walk,panic]
+
+  - pos: v
+    syn: s\np[agr=sg]/np
+    sem: lex'
+    phon: [chases,likes]
+
+  - pos: v
+    syn: s\np[agr=pl]/np
+    sem: lex'
+    phon: [chase,like]
+
+  - pos: d
+    syn: 
+      - s/(s\np[agr=?x])/n[agr=?x]
+      - s\(s/np)/n
+    sem: \p\qAx. p x > q x # this is done as an example
+    phon: [every]
+
+  - pos: d
+    syn: 
+      - (s\np)\(s\np/np)/n 
+    sem: lex' # EDIT THIS
+    phon: [every]
+
+  - pos: d
+    syn: 
+      - s/(s\np[agr=?x])/n[agr=?x]
+      - s\(s/np)/n
+    sem: lex' # EDIT THIS
+    phon: [some]
+
+  - pos: d
+    syn: 
+      - (s\np)\(s\np/np)/n 
+    sem: lex' # EDIT THIS
+    phon: [some]
+
+  - pos: d
+    syn: 
+      - s/(s\np[agr=?x])/n[agr=?x]
+      - s\(s/np)/n
+    sem: lex' # EDIT THIS
+    phon: [no]
+
+  - pos: d
+    syn: 
+      - (s\np)\(s\np/np)/n 
+    sem: lex' # EDIT THIS
+    phon: [no]
